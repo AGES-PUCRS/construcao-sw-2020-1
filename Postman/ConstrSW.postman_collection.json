@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "7fc1617a-c19f-4baf-a4c8-50a5e30c1007",
+		"name": "ConstrSW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3456/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "3456",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3456/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3456/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3456",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
