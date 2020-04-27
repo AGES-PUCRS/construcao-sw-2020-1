@@ -1,11 +1,8 @@
 {
-    "realm": "Test",
-    //WINDOWS
-    // "auth-server-url": "http://host.docker.internal:8080/auth",
-    //LINUX
-    "auth-server-url": "http://172.17.0.1:8080/auth",
-    "ssl-required": "external",
-    "resource": "test-client",
-    "public-client": true,
-    "confidential-port": 0
+  "realm": "Test",
+  "auth-server-url": "http://ec2-52-67-245-158.sa-east-1.compute.amazonaws.com:8080/auth/",
+  "ssl-required": "external",
+  "resource": "test-client",
+  "public-client": true,
+  "confidential-port": 0
 }
