@@ -3,7 +3,7 @@
     //WINDOWS
     // "auth-server-url": "http://host.docker.internal:8080/auth",
     //LINUX
-    "auth-server-url": "http://172.17.0.1:8080/auth",
+    "auth-server-url": "http://172.31.7.217:8080/auth",
     "ssl-required": "external",
     "resource": "test-client",
     "public-client": true,
