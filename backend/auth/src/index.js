@@ -2,17 +2,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var Keycloak = require('keycloak-connect');
 
-const kcConfig = {
-  realm: 'ConstrSW',
-  'auth-server-url': process.env.AUTH_URL,
-  'ssl-required': 'external',
-  'bearer-only': true,
-  resource: 'constrsw-auth',
-  credentials: {
-    secret: process.env.CLIENT_SECRET
-  },
-  'confidential-port': 0
-};
+const kcConfig = require('./keycloak.json')
 
 const keycloak = new Keycloak({}, kcConfig);
 keycloak.redirectToLogin = () => false;
@@ -37,5 +27,7 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.use( keycloak.middleware( { logout: '/'} ));
+
 module.exports.start = port =>
-  app.listen(port, () => console.log(`Listening on port ${port}`));
+  app.listen(port, () => console.log(`Listening on porterson ${port}`));
