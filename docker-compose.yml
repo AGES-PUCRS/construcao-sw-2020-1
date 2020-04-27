@@ -27,7 +27,7 @@ services:
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
     build: ./backend/keycloak/build/dev
     ports:
-      - 8080:8080
+      - 8443:8443
     networks:
       - constrsw
     depends_on:
