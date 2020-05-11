@@ -19,12 +19,6 @@ export const TurmaSchema = new mongoose.Schema({
       ref: 'Disciplina',
       required: true
     },
-    aulas: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Aula'
-      }
-    ],
     createdAt: {
         type: Date,
         default: Date.now,

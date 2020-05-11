@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch } from '@nestjs/common';
+import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch, Query } from '@nestjs/common';
 import { DisciplinaService } from './disciplina.service';
 import { DisciplinaModel } from './disciplina.model';
 
@@ -17,9 +17,9 @@ export class DisciplinaController {
     }
 
     @Get()
-    async get(@Res() res): Promise<DisciplinaModel[]> {
+    async get(@Res() res, @Query() query): Promise<DisciplinaModel[]> {
         try {
-            const users = await this.service.get();
+            const users = await this.service.get(query);
             return res.status(200).json(users);
         } catch (e) {
             return res.status(500).json(e);

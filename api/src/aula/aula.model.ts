@@ -6,8 +6,7 @@ export class AulaModel{
     constructor(
       public id: ObjectId,
       public diaHora: Date,
-      public turma: TurmaModel[],
-      // public turmas: TurmaModel[],
+      public turma: TurmaModel
     ) {}
 }
 

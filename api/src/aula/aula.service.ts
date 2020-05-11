@@ -8,8 +8,22 @@ import { AulaModel } from './aula.model';
 export class AulaService {
   constructor(@InjectModel('Aula') private readonly model: Model<AulaModel>) { }
 
-  async get(): Promise<AulaModel[]> {
-    return await this.model.find().exec();
+  async get(query): Promise<AulaModel[]> {
+    let custom = {...query}
+    if (custom) {
+      console.log(custom)
+      if (!custom.diaHora){
+        if (custom.maxDiaHora) {
+          custom['diaHora'] = {...custom['diaHora'], '$lte': custom.maxDiaHora }
+        }
+        if (custom.minDiaHora) {
+          custom['diaHora'] = {...custom['diaHora'], '$gte': custom.minDiaHora}
+        }
+      }
+      delete custom.minDiaHora
+      delete custom.maxDiaHora
+    }
+    return await this.model.find(custom).exec();
   }
 
   async create(model: AulaModel): Promise<AulaModel> {

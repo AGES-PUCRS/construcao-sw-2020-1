@@ -8,8 +8,22 @@ import { TurmaModel } from './turma.model';
 export class TurmaService {
   constructor(@InjectModel('Turma') private readonly model: Model<TurmaModel>) { }
 
-  async get(): Promise<TurmaModel[]> {
-    return await this.model.find().exec();
+  async get(query): Promise<TurmaModel[]> {
+    let custom = {...query}
+    if (custom) {
+      console.log(custom)
+      if (!custom.horario){
+        if (custom.maxHorario) {
+          custom['horario'] = {...custom['horario'], '$lte': custom.maxHorario }
+        }
+        if (custom.minHorario) {
+          custom['horario'] = {...custom['horario'], '$gte': custom.minHorario}
+        }
+      }
+      delete custom.minHorario
+      delete custom.maxHorario
+    }
+    return await this.model.find(custom).exec();
   }
 
   async create(model: TurmaModel): Promise<TurmaModel> {

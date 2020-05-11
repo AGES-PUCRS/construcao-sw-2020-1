@@ -5,8 +5,7 @@ export class DisciplinaModel{
     constructor(
         public id: ObjectId,
         public nome: string,
-        public curso: ObjectId,
-        // public turmas: TurmaModel[],
+        public curso: ObjectId
     ) {}
 }
 

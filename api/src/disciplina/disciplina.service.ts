@@ -8,8 +8,8 @@ import { DisciplinaModel } from './disciplina.model';
 export class DisciplinaService {
   constructor(@InjectModel('Disciplina') private readonly model: Model<DisciplinaModel>) { }
 
-  async get(): Promise<DisciplinaModel[]> {
-    return await this.model.find().exec();
+  async get(query): Promise<DisciplinaModel[]> {
+    return await this.model.find(query).exec();
   }
 
   async create(model: DisciplinaModel): Promise<DisciplinaModel> {

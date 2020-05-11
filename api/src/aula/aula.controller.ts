@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch } from '@nestjs/common';
+import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch, Query } from '@nestjs/common';
 import { AulaModel } from './aula.model';
 import { AulaService } from './aula.service';
 
@@ -17,9 +17,9 @@ export class AulaController {
     }
 
     @Get()
-    async get(@Res() res): Promise<AulaModel[]> {
+    async get(@Res() res, @Query() query): Promise<AulaModel[]> {
         try {
-            const users = await this.service.get();
+            const users = await this.service.get(query);
             return res.status(200).json(users);
         } catch (e) {
             return res.status(500).json(e);

@@ -10,12 +10,6 @@ export const DisciplinaSchema = new mongoose.Schema({
             ref: 'Curso',
             required: true
     },
-    turmas: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-            ref: 'Turma',
-      }
-    ],
     createdAt: {
         type: Date,
         default: Date.now,

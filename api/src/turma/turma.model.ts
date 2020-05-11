@@ -1,7 +1,6 @@
 import { ObjectId } from "bson";
 import { Document } from 'mongoose';
 import { DisciplinaModel } from "src/disciplina/disciplina.model";
-import { AulaModel } from "src/aula/aula.model";
 
 export class TurmaModel{
     constructor(
@@ -9,9 +8,7 @@ export class TurmaModel{
       public numero: Number,
       public horario: Date,
       public professor: ObjectId,
-      public curso: ObjectId,
-      public disciplina: DisciplinaModel,
-      public aulas: AulaModel[]
+      public disciplina: DisciplinaModel
     ) {}
 }
 
