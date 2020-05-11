@@ -2,6 +2,20 @@ version: "3.6"
 
 services:
 
+  api:
+    container_name: "constrsw-api"
+    working_dir: /app
+    build: 
+      context: ./api
+      dockerfile: build/dev/Dockerfile
+    volumes:
+        - ./api:/app
+    ports:
+        - 3000:3000
+    networks:
+        - constrsw
+    command: sh -c "rm *lock*  && yarn install && yarn start:prod"
+
   auth:
     build:
       context: ./backend/auth
