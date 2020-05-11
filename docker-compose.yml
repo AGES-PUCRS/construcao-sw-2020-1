@@ -14,7 +14,7 @@ services:
         - 3000:3000
     networks:
         - constrsw
-    command: sh -c "rm *lock*  && yarn install && yarn start:prod"
+    command: sh -c "yarn install && yarn start:prod"
 
   auth:
     build:
