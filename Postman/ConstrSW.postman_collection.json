@@ -11,9 +11,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3456/ping",
+					"raw": "http://18.230.151.22:3456/ping",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"18",
+						"230",
+						"151",
+						"22"
 					],
 					"port": "3456",
 					"path": [
@@ -24,14 +28,27 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3456/login",
+			"name": "/login",
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"user\",\n\t\"password\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3456/login",
+					"raw": "http://18.230.151.22:3456/login",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"18",
+						"230",
+						"151",
+						"22"
 					],
 					"port": "3456",
 					"path": [
