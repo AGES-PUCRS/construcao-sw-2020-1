@@ -1,13 +1,13 @@
 import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch, Query } from '@nestjs/common';
-import { DisciplinaService } from './disciplina.service';
-import { DisciplinaModel } from './disciplina.model';
+import { LessonModel } from './lesson.model';
+import { LessonService } from './lesson.service';
 
-@Controller('disciplina')
-export class DisciplinaController {
-    constructor(private readonly service: DisciplinaService) { }
+@Controller('lessons')
+export class LessonController {
+    constructor(private readonly service: LessonService) { }
 
     @Post()
-    async create(@Body() model: DisciplinaModel, @Res() res) {
+    async create(@Body() model: LessonModel, @Res() res) {
         try {
             const user = await this.service.create(model);
             return res.status(200).json(user);
@@ -17,7 +17,7 @@ export class DisciplinaController {
     }
 
     @Get()
-    async get(@Res() res, @Query() query): Promise<DisciplinaModel[]> {
+    async get(@Res() res, @Query() query): Promise<LessonModel[]> {
         try {
             const users = await this.service.get(query);
             return res.status(200).json(users);
@@ -37,7 +37,7 @@ export class DisciplinaController {
     }
 
     @Get(':id')
-    async getById(@Param('id') id: string, @Res() res): Promise<DisciplinaModel>{
+    async getById(@Param('id') id: string, @Res() res): Promise<LessonModel>{
         try{
             var user = await this.service.findOneById(id);
             return res.status(200).json(user);
@@ -48,7 +48,7 @@ export class DisciplinaController {
     }
 
     @Put(':id')
-    async put(@Param('id') id: string, @Body() model: DisciplinaModel, @Res() res): Promise<DisciplinaModel>{
+    async put(@Param('id') id: string, @Body() model: LessonModel, @Res() res): Promise<LessonModel>{
         try{
             var user = await this.service.update(model, id);
             return res.status(200).json(user);
@@ -59,7 +59,7 @@ export class DisciplinaController {
     }
 
     @Patch(':id')
-    async patch(@Param('id') id: string, @Body() model: DisciplinaModel, @Res() res): Promise<DisciplinaModel>{
+    async patch(@Param('id') id: string, @Body() model: LessonModel, @Res() res): Promise<LessonModel>{
         try{
             var user = await this.service.replace(model, id);
             return res.status(200).json(user);

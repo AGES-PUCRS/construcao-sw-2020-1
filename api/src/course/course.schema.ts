@@ -1,13 +1,13 @@
 import * as mongoose from 'mongoose';
 
-export const DisciplinaSchema = new mongoose.Schema({
-    nome: {
+export const CourseSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
     },
-    curso:{
+    academy:{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Curso',
+            ref: 'Academy',
             required: true
     },
     createdAt: {
@@ -25,5 +25,5 @@ export const DisciplinaSchema = new mongoose.Schema({
       virtuals: true,
     },
   });
-const Disciplina = mongoose.model('Disciplina', DisciplinaSchema);
-module.exports = Disciplina;
+const Course = mongoose.model('Course', CourseSchema);
+module.exports = Course;

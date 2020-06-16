@@ -1,15 +1,15 @@
 {
 	"info": {
-		"_postman_id": "90d33ea7-0684-46e4-923c-5f0d7d42415e",
+		"_postman_id": "cfffabb9-774d-416f-928d-e494c5669dd9",
 		"name": "Contruçao de Software",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Disciplina",
+			"name": "Course",
 			"item": [
 				{
-					"name": "POST disciplina",
+					"name": "POST course",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -22,88 +22,66 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Contrução de Software\",\n\t\"curso\": \"507f191e810c19729de860ea\"\n}",
+							"raw": "{\n\t\"name\": \"Contrução de Software\",\n\t\"academy\": \"507f191e810c19729de860ea\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/disciplina",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"disciplina"
-							]
-						}
+						"url": "http://localhost:3000/courses"
 					},
 					"response": []
 				},
 				{
-					"name": "GET disciplinas",
+					"name": "GET courses",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/disciplina",
+							"raw": "http://localhost:3000/courses?academy=507f191e810c19729de860ea&name=Contrução de Software",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"disciplina"
+								"courses"
+							],
+							"query": [
+								{
+									"key": "academy",
+									"value": "507f191e810c19729de860ea"
+								},
+								{
+									"key": "name",
+									"value": "Contrução de Software"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET disciplinas/:id",
+					"name": "GET courses/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/disciplina/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"disciplina",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/courses/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE discliplina",
+					"name": "DELETE course",
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/disciplina/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"disciplina",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/courses/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PUT disciplina",
+					"name": "PUT course",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -116,30 +94,19 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Contrução de Software - Put\",\n\t\"curso\": \"507f191e810c19729de860ef\"\n}",
+							"raw": "{\n\t\"name\": \"Contrução de Software - Put\",\n\t\"academy\": \"507f191e810c19729de860ef\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/disciplina/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"disciplina",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/courses/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PATCH Disciplina",
+					"name": "PATCH Course",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -152,25 +119,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Contrução de Software - Patch\"\n}",
+							"raw": "{\n\t\"name\": \"Contrução de Software - Patch\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/disciplina/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"disciplina",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/courses/<:id>"
 					},
 					"response": []
 				}
@@ -178,10 +134,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Turma",
+			"name": "Class",
 			"item": [
 				{
-					"name": "POST turma",
+					"name": "POST class",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -194,88 +150,82 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"numero\": 127,\n\t\"horario\": \"2020-05-06T17:59:19.534Z\",\n\t\"professor\": \"507f191e810c19729de860ea\",\n\t\"disciplina\": \"5eb2faf75172fa3dce8f6933\"\n}",
+							"raw": "{\n\t\"number\": 127,\n\t\"timeSchedule\": \"2020-05-06T17:59:19.534Z\",\n\t\"teacher\": \"507f191e810c19729de860ea\",\n\t\"course\": \"5ee92a3fe6ab7d7af20ca322\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/turma",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"turma"
-							]
-						}
+						"url": "http://localhost:3000/classes"
 					},
 					"response": []
 				},
 				{
-					"name": "GET turma",
+					"name": "GET class",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/turma",
+							"raw": "http://localhost:3000/classes?number=127&timeSchedule=2020-05-06T17:59:19.534Z&minTimeSchedule=2018-05-06T17:59:19.534Z&maxTimeSchedule=2020-05-06T17:59:19.534Z&teacher=507f191e810c19729de860ea&course=5ee92a3fe6ab7d7af20ca322",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"turma"
+								"classes"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "127"
+								},
+								{
+									"key": "timeSchedule",
+									"value": "2020-05-06T17:59:19.534Z"
+								},
+								{
+									"key": "minTimeSchedule",
+									"value": "2018-05-06T17:59:19.534Z"
+								},
+								{
+									"key": "maxTimeSchedule",
+									"value": "2020-05-06T17:59:19.534Z"
+								},
+								{
+									"key": "teacher",
+									"value": "507f191e810c19729de860ea"
+								},
+								{
+									"key": "course",
+									"value": "5ee92a3fe6ab7d7af20ca322"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET turma/:id",
+					"name": "GET class/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/turma/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"turma",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/class/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE turma",
+					"name": "DELETE class",
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/turma/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"turma",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/class/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PUT turma",
+					"name": "PUT class",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -288,30 +238,19 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"numero\": 423,\n\t\"horario\": \"2020-05-06T19:59:19.534Z\",\n\t\"professor\": \"507f191e810c19729de860ef\",\n\t\"disciplina\": \"5eb2faf75172fa3dce8f6973\"\n}",
+							"raw": "{\n\t\"number\": 423,\n\t\"timeSchedule\": \"2020-05-06T19:59:19.534Z\",\n\t\"teacher\": \"507f191e810c19729de860ef\",\n\t\"course\": \"5eb2faf75172fa3dce8f6973\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/turma/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"turma",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/class/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PATCH turma",
+					"name": "PATCH class",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -324,25 +263,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"numero\": 423\n}",
+							"raw": "{\n\t\"number\": 423\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/turma/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"turma",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/class/<:id>"
 					},
 					"response": []
 				}
@@ -350,10 +278,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Aula",
+			"name": "Lesson",
 			"item": [
 				{
-					"name": "POST aula",
+					"name": "POST lesson",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -366,88 +294,74 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"diaHora\":\"2020-05-06T17:59:19.534Z\",\n\t\"turma\": \"5eb304bc04ff0d4534f9f3a1\"\n}",
+							"raw": "{\n\t\"date\":\"2020-05-06T17:59:19.534Z\",\n\t\"class_id\": \"5ee92a5be6ab7d7af20ca324\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/aula",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"aula"
-							]
-						}
+						"url": "http://localhost:3000/lessons"
 					},
 					"response": []
 				},
 				{
-					"name": "GET aula",
+					"name": "GET lesson",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/aula",
+							"raw": "http://localhost:3000/lessons?class_id=5ee92a5be6ab7d7af20ca324&maxDate=2020-05-06T17:59:19.534Z&minDate=2018-05-06T17:59:19.534Z&date=2020-05-06T17:59:19.534Z",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"aula"
+								"lessons"
+							],
+							"query": [
+								{
+									"key": "class_id",
+									"value": "5ee92a5be6ab7d7af20ca324"
+								},
+								{
+									"key": "maxDate",
+									"value": "2020-05-06T17:59:19.534Z"
+								},
+								{
+									"key": "minDate",
+									"value": "2018-05-06T17:59:19.534Z"
+								},
+								{
+									"key": "date",
+									"value": "2020-05-06T17:59:19.534Z"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET aula/:id",
+					"name": "GET lesson/:id",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/aula/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"aula",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/lessons/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE aula",
+					"name": "DELETE lesson",
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/aula/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"aula",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/lessons/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PUT aula",
+					"name": "PUT lesson",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -460,30 +374,19 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"diaHora\":\"2020-05-06T19:59:19.534Z\",\n\t\"turma\": \"5eb304bc04ff0d4534f9f3a7\"\n}",
+							"raw": "{\n\t\"date\":\"2020-05-06T19:59:19.534Z\",\n\t\"class\": \"5eb304bc04ff0d4534f9f3a7\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/aula/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"aula",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/lessons/<:id>"
 					},
 					"response": []
 				},
 				{
-					"name": "PATCH aula",
+					"name": "PATCH lesson",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -496,25 +399,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"diaHora\":\"2020-05-06T19:59:19.534Z\"\n}",
+							"raw": "{\n\t\"date\":\"2020-05-06T19:59:19.534Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/aula/<:id>",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"aula",
-								"<:id>"
-							]
-						}
+						"url": "http://localhost:3000/lessons/<:id>"
 					},
 					"response": []
 				}
