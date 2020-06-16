@@ -1,13 +1,13 @@
 import { Controller, Post, Body, Res, Get, Delete, Param, Put, Patch, Query } from '@nestjs/common';
-import { TurmaModel } from './turma.model';
-import { TurmaService } from './turma.service';
+import { CourseService } from './course.service';
+import { CourseModel } from './course.model';
 
-@Controller('turma')
-export class TurmaController {
-    constructor(private readonly service: TurmaService) { }
+@Controller('courses')
+export class CourseController {
+    constructor(private readonly service: CourseService) { }
 
     @Post()
-    async create(@Body() model: TurmaModel, @Res() res) {
+    async create(@Body() model: CourseModel, @Res() res) {
         try {
             const user = await this.service.create(model);
             return res.status(200).json(user);
@@ -17,7 +17,7 @@ export class TurmaController {
     }
 
     @Get()
-    async get(@Res() res, @Query() query): Promise<TurmaModel[]> {
+    async get(@Res() res, @Query() query): Promise<CourseModel[]> {
         try {
             const users = await this.service.get(query);
             return res.status(200).json(users);
@@ -37,7 +37,7 @@ export class TurmaController {
     }
 
     @Get(':id')
-    async getById(@Param('id') id: string, @Res() res): Promise<TurmaModel>{
+    async getById(@Param('id') id: string, @Res() res): Promise<CourseModel>{
         try{
             var user = await this.service.findOneById(id);
             return res.status(200).json(user);
@@ -48,7 +48,7 @@ export class TurmaController {
     }
 
     @Put(':id')
-    async put(@Param('id') id: string, @Body() model: TurmaModel, @Res() res): Promise<TurmaModel>{
+    async put(@Param('id') id: string, @Body() model: CourseModel, @Res() res): Promise<CourseModel>{
         try{
             var user = await this.service.update(model, id);
             return res.status(200).json(user);
@@ -59,7 +59,7 @@ export class TurmaController {
     }
 
     @Patch(':id')
-    async patch(@Param('id') id: string, @Body() model: TurmaModel, @Res() res): Promise<TurmaModel>{
+    async patch(@Param('id') id: string, @Body() model: CourseModel, @Res() res): Promise<CourseModel>{
         try{
             var user = await this.service.replace(model, id);
             return res.status(200).json(user);

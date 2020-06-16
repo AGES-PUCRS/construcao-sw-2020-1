@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { DisciplinaModule } from './disciplina/disciplina.module';
+import { CourseModule } from './course/course.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import Environment  from './enviroments';
-import { TurmaModule } from './turma/turma.module';
-import { AulaModule } from './aula/aula.module';
+import { ClassModule } from './class/class.module';
+import { LessonModule } from './lesson/lesson.module';
 
 @Module({
-  imports: [MongooseModule.forRoot(Environment.api_url), DisciplinaModule, TurmaModule, AulaModule],
+  imports: [MongooseModule.forRoot(Environment.api_url), CourseModule, ClassModule, LessonModule],
 })
 export class AppModule {}

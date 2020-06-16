@@ -1,13 +1,13 @@
 import * as mongoose from 'mongoose';
 
-export const AulaSchema = new mongoose.Schema({
-    diaHora: {
+export const LessonSchema = new mongoose.Schema({
+    date: {
         type: Date,
         required: true,
     },
-    turma: {
+    class_id: {
         type: mongoose.Schema.Types.ObjectId,
-            ref: 'Turma',
+            ref: 'Class',
             required: true
     },
     createdAt: {
@@ -25,5 +25,5 @@ export const AulaSchema = new mongoose.Schema({
         virtuals: true,
     },
 });
-const Aula = mongoose.model('Aula', AulaSchema);
-module.exports = Aula;
+const Lesson = mongoose.model('Lesson', LessonSchema);
+module.exports = Lesson;

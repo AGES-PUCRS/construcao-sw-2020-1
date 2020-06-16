@@ -1,22 +1,22 @@
 import * as mongoose from 'mongoose';
 
-export const TurmaSchema = new mongoose.Schema({
-    numero: {
+export const ClassSchema = new mongoose.Schema({
+    number: {
         type: Number,
         required: true,
     },
-    horario: {
+    timeSchedule: {
       type: Date,
       required: true,
     },
-    professor: {
+    teacher: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Professor',
+      ref: 'Teacher',
       required: true
     },
-    disciplina:{
+    course:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Disciplina',
+      ref: 'Course',
       required: true
     },
     createdAt: {
@@ -34,5 +34,5 @@ export const TurmaSchema = new mongoose.Schema({
       virtuals: true,
     },
   });
-const Turma = mongoose.model('Turma', TurmaSchema);
-module.exports = Turma;
+const Class = mongoose.model('Class', ClassSchema);
+module.exports = Class;
