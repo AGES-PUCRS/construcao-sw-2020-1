@@ -23,7 +23,14 @@ export class LessonService {
       delete custom.minDate
       delete custom.maxDate
     }
-    return await this.model.find(custom).exec();
+    return await this.model
+    .find(custom)
+    .populate({
+      path : 'class_id',
+      populate : {
+        path : 'course'
+      }
+    }).exec();
   }
 
   async create(model: LessonModel): Promise<LessonModel> {

@@ -23,7 +23,7 @@ export class ClassService {
       delete custom.minTimeSchedule
       delete custom.maxTimeSchedule
     }
-    return await this.model.find(custom).exec();
+    return await this.model.find(custom).populate('course').exec();
   }
 
   async create(model: ClassModel): Promise<ClassModel> {
