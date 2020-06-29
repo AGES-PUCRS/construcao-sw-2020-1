@@ -45,7 +45,12 @@ export class LessonService {
   }
 
   async findOneById(id: string): Promise<LessonModel> {
-    return await this.model.findOne({ _id: id }).exec()
+    return await this.model.findOne({ _id: id }).populate({
+      path : 'class_id',
+      populate : {
+        path : 'course'
+      }
+    }).exec()
   }
 
   async update(model: LessonModel, id: string): Promise<LessonModel> {

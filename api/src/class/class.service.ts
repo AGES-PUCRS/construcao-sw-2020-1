@@ -38,7 +38,7 @@ export class ClassService {
   }
 
   async findOneById(id: string): Promise<ClassModel> {
-    return await this.model.findOne({ _id: id }).exec()
+    return await this.model.findOne({ _id: id }).populate('course').exec()
   }
 
   async update(model: ClassModel, id: string): Promise<ClassModel> {
