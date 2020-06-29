@@ -6,7 +6,8 @@ export class LessonModel{
     constructor(
       public id: ObjectId,
       public date: Date,
-      public class_id: ClassModel
+      public class_id: ClassModel,
+      public description: String
     ) {}
 }
 
